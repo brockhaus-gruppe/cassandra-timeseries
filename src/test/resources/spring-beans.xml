@@ -1,0 +1,49 @@
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+   <context:annotation-config/>
+	
+	<!-- cassandra dao -->
+	<bean name="cassandra_dao" class="de.brockhaus.data.timeseries.dao.SensorDataCassandraDAO" scope="singleton" >
+				
+		<!-- default ttl for a value
+			TTL(time to live):
+	 			* a negative value indicates no ttl 
+	 			* one year: 31556952000
+	 			* one month: 2629746000
+	 			* one week:   604800000
+	 			* one day:     86400000
+	 			* one hour:     3600000
+	 			* one minute:     60000 
+		-->
+		<property name="ttl">
+			<value>2000</value>
+		</property>	
+		
+		<!-- time range -->
+		<property name="range">
+			<value>HOUR</value>
+		</property>	
+		
+	</bean>
+	
+	<!-- cassandra data source -->
+	<bean name="cassandra_datasource"
+		class="de.brockhaus.data.timeseries.dao.CassandraDataSource" scope="singleton">
+		
+		<property name="hostIP">
+			<value>127.0.0.1</value>
+		</property>
+		
+		<property name="keyspace">
+			<value>test</value>
+		</property>
+	</bean>
+	
+</beans>

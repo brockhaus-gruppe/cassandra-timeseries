@@ -1,0 +1,2 @@
+CREATE TABLE sensor_data (sensor_id text, datatype text, time timestamp, time_range timestamp, time_scale text, value text, PRIMARY KEY((sensor_id, time_range), time));
+CREATE INDEX sensor_id_index  ON sensor_data (sensor_id);
