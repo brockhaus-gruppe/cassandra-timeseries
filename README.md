@@ -1,7 +1,7 @@
 # cassandra-timeseries
 Some evaluation of Apache Cassandra with respect to time series data, more content will follow ...
 
-The documentation of the ongoing work: http://tinyurl.com/q9mdg29
+The documentation of the ongoing work: http://tinyurl.com/oltd9op (google docs)
 
 General information related to
 <br>
