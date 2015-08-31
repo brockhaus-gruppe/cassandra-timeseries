@@ -8,6 +8,10 @@ import com.datastax.driver.core.Metadata;
 import com.datastax.driver.core.Session;
 
 /**
+ * Inspired by the DAO Pattern ... 
+ * Later on we might have a MongoDBDataSource.
+ * 
+ * @see spring-beans.xml
  * 
  * Project: cassandra.sensordata
  *
@@ -64,30 +68,13 @@ public class CassandraDataSource {
 		return this.connect(this.hostIP, this.keyspace);
 	}
 	
-	/**
-	 * the typical cql: CREATE TABLE sensor ( id text, time timestamp, datatype text, PRIMARY KEY(id, time));
-	 * @param cql
-	 */
-	public void createTable(String cql) {
-		if(! connected) {
-			this.connect(this.hostIP, this.keyspace);
-		}
-		
-		session.execute(cql);	
-	}
-	
-	// TODO enhance by Strategy and Replication Factor as parameter
-	public void createKeyspace(String name) {
-		session.execute("CREATE KEYSPACE " + name + " WITH replication = {'class':'SimpleStrategy', 'replication_factor':3};");
-	}
-	
 	public void close() {
 		cluster.close();
 	}
 
 	
 	
-	// all getters and setters as Spring needs this
+	// all getters and setters as Spring wants this
 	public String getHostIP() {
 		return hostIP;
 	}

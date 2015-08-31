@@ -20,4 +20,6 @@ public class CQLHelper {
 	public static final String GET_NO_OF_RECORDS = "SELECT COUNT(*) FROM sensor_data";
 	
 	public static final String FIND_BY_SENSORID = "SELECT * FROM sensor_data WHERE SENSOR_ID = ? ";
+	
+	public static final String FIND_BY_SENSORID_AND_TIMEINTERVALL = "SELECT * FROM sensor_data WHERE SENSOR_ID = ? AND TIME >= ? AND TIME <= ? ALLOW FILTERING";
 }

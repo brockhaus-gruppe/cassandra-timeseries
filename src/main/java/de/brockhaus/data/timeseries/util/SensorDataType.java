@@ -2,11 +2,11 @@ package de.brockhaus.data.timeseries.util;
 
 /**
  * 
- * Project: comcommon
+ * Project: cassandra.timeseries
  *
  * Copyright (c) by Brockhaus Group
  * www.brockhaus-gruppe.de
- * @author mbohnen, May 16, 2015
+ * @author mbohnen, Aug 31, 2015
  *
  */
 public enum SensorDataType {

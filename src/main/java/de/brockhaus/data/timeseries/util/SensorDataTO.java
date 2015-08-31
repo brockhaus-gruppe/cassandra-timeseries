@@ -15,6 +15,8 @@ import java.util.Date;
  */
 public class SensorDataTO implements Serializable {
 
+	private static final long serialVersionUID = 3005885588469241728L;
+	
 	private String sensorid;
 	private Date time;
 	private SensorDataType datatype;

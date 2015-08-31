@@ -2,7 +2,7 @@ package de.brockhaus.data.timeseries.util;
 
 /**
  * 
- * Determine how the data will be stored ...
+ * Determine how the data will be stored in time buckets ...
  * 
  * Project: cassandra.timeseries
  *

@@ -70,5 +70,11 @@ public interface SensorDataDAO {
 	 */
 	List<SensorDataTO> findBySensorIDAndTimeInterval(String sensorId, Date from, Date to);
 	
+	/**
+	 * 
+	 * @param from
+	 * @param to
+	 * @return
+	 */
 	List<SensorDataTO> findByTimeInterval(Date from, Date to);
 }

@@ -52,7 +52,7 @@ public class SensorDataCassandraDAO implements SensorDataDAO {
 	
 	private static final Logger LOG = Logger.getLogger(SensorDataCassandraDAO.class);
 
-	/** default partitioning */
+	/** default time bucket */
 	private TimeRange range = TimeRange.DAY;
 	
 	/** 
@@ -114,7 +114,6 @@ public class SensorDataCassandraDAO implements SensorDataDAO {
 	}
 	
 	
-	
 	@Override
 	public long getNumberOfRecords() {
 		Session session = ds.connect();
@@ -167,7 +166,7 @@ public class SensorDataCassandraDAO implements SensorDataDAO {
 		Timestamp fromTs = new Timestamp(from.getTime());
 		Timestamp toTs = new Timestamp(to.getTime());
 		
-		String cql = "SELECT * FROM sensor_data WHERE SENSOR_ID = ? AND TIME > ? AND TIME < ?";
+		String cql = CQLHelper.FIND_BY_SENSORID_AND_TIMEINTERVALL;
 
 		PreparedStatement pStat = session.prepare(cql);
 		BoundStatement bStat = new BoundStatement(pStat);
@@ -218,7 +217,7 @@ public class SensorDataCassandraDAO implements SensorDataDAO {
 		return tos;
 	}
 	
-	// helper method to truncate the date provided
+	// helper method to truncate the date provided to the appropriate time bucket
 	private Date calculateRange(Date date) {
 		
 		Instant instant = date.toInstant();
@@ -235,8 +234,7 @@ public class SensorDataCassandraDAO implements SensorDataDAO {
 		return date;
 	}
 
-	// getters and setters to keep Spring happy
-	
+	// getters and setters to keep Spring happy	
 	public TimeRange getRange() {
 		return range;
 	}
