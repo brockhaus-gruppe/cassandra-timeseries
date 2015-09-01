@@ -55,8 +55,7 @@ public class CassandraDataSource {
 		
 		for (Host host : metadata.getAllHosts()) {
 			LOG.debug(System.out.printf("Datatacenter: %s; Host: %s; Rack: %s\n",
-					host.getDatacenter(), host.getAddress(), host.getRack()));
-			
+					host.getDatacenter(), host.getAddress(), host.getRack()));			
 		}
 		
 		this.connected = true;
