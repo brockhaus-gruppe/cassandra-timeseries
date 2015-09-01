@@ -1,0 +1,2 @@
+--DELETE FROM sensor_data WHERE sensor_id = 'PT_DS1_316233.ED01_FA011.AA.R2444';
+TRUNCATE sensor_data;

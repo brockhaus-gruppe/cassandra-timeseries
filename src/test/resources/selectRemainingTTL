@@ -1,0 +1,1 @@
+SELECT TTL(value) FROM sensor_data WHERE sensor_id = 'ABC-123';
